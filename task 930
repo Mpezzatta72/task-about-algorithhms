@@ -1,0 +1,64 @@
+The program reads words and numbers from the keyboard, adds them to a list, converts the list to an array, and then displays the array on the screen.
+Sort the array so that words appear in ascending order and numbers appear in descending order.
+
+Example input:
+Cherry
+1
+Bob
+3
+Apple
+22
+0
+Watermelon
+
+Example output:
+Watermelon
+22
+Bob
+3
+Cherry
+1
+0
+Apple
+
+
+Requirements:
+•	The program must read data from the keyboard.
+•	The program should display data on the screen.
+•	The displayed words should be sorted in ascending order. Use the ready-made isGreaterThan(String, String) method.
+•	The displayed numbers must be sorted in descending order.
+•	In the main(String[]) method, you need to use the sort(String[]) method.
+•	In the sort (String []) method, you need to use the isGreaterThan(String, String) and isNumber(String) methods.
+
+
+package en.codegym.task.jdk13.task09.task0930;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+/* 
+Task about algorithms
+*/
+
+public class Solution {
+
+    public static ArraySorter arraySorter = new ArraySorter();
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        ArrayList<String> list = new ArrayList<>();
+        String line = reader.readLine();
+        while (!line.isEmpty()) {
+            list.add(line);
+            line = reader.readLine();
+        }
+
+        String[] array = list.toArray(new String[0]); // makes it simple
+        arraySorter.sort(array);
+
+        for (String x : array) {
+            System.out.println(x);
+        }
+    }
+}
